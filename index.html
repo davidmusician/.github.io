@@ -1,8 +1,3 @@
-To achieve the full-width cinematic hero effect shown in `image_154da4.jpg`, you need to extract the `#home` section from the left column of your layout and make it a dedicated, full-width `<section>` at the top of the page.
-
-I have updated the structure so the hero spans the entire width of the screen, utilizing one of your existing wide-stage photos (`ESME Summer Concert 2026_07_05-446.jpg`) as the background. I applied directional CSS gradients over the image to ensure the left-aligned text pops and placed the white "Explore the music" button on the bottom right.
-
-```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -11,9 +6,6 @@ I have updated the structure so the hero spans the entire width of the screen, u
   <title>David Aguiar | Jazz Vocalist & Big Band Crooner</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- SoundCloud Widget API -->
-  <script src="https://w.soundcloud.com/player/api.js"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,7 +68,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
   <header class="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
     <div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#home" class="text-2xl font-serif tracking-widest text-white group">
-        DAVID Aguiar
+        DAVID AGUIAR
       </a>
       
       <nav class="hidden md:flex items-center space-x-8 text-sm text-white">
@@ -89,27 +81,20 @@ I have updated the structure so the hero spans the entire width of the screen, u
     </div>
   </header>
 
-  <!-- Full Width Hero Section matching image_154da4.jpg -->
   <section id="home" class="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-end pb-16 pt-24 mt-0">
-    <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <!-- Using your wide band shot as the hero background -->
-      <img src="ESME Summer Concert 2026_07_05-446.jpg" alt="Live Performance" class="w-full h-full object-cover object-center" />
-      <!-- Dark gradients to ensure text readability -->
+      <img src="images/ESME_Summer_Concert_2026_07_05-446.jpg" alt="Live Performance" class="w-full h-full object-cover object-center" />
       <div class="absolute inset-0 bg-gradient-to-r from-midnight/90 via-midnight/60 to-transparent"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-midnight/95 via-transparent to-transparent opacity-80"></div>
     </div>
 
-    <!-- Content Container -->
     <div class="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-end gap-8 md:gap-0">
       
-      <!-- Left Text -->
       <div class="reveal w-full md:w-3/4">
         <h1 class="text-5xl sm:text-7xl md:text-8xl font-sans font-bold text-white tracking-tight mb-4 md:mb-6">
           David Aguiar
         </h1>
         <div class="flex items-center gap-4">
-          <!-- Small square icon replicating the one in the mockup -->
           <div class="w-5 h-5 border border-white/40 flex items-center justify-center bg-white/10 flex-shrink-0">
             <div class="w-2 h-2 bg-white/80"></div>
           </div>
@@ -119,7 +104,6 @@ I have updated the structure so the hero spans the entire width of the screen, u
         </div>
       </div>
 
-      <!-- Right Button -->
       <div class="reveal delay-100 flex-shrink-0">
         <a href="#repertoire" class="inline-block px-8 py-3 bg-white text-midnight font-sans font-semibold rounded hover:bg-slate-200 transition-colors shadow-lg">
           Explore the music
@@ -128,10 +112,8 @@ I have updated the structure so the hero spans the entire width of the screen, u
     </div>
   </section>
 
-  <!-- Two Column Content Area -->
   <main class="max-w-[1600px] mx-auto flex flex-col lg:flex-row min-h-screen">
     
-    <!-- Left Column -->
     <div class="w-full lg:w-1/2 lg:border-r border-slateGold/20 px-6 lg:px-12 py-16 relative">
       <div class="absolute inset-0 star-bg opacity-70 pointer-events-none"></div>
 
@@ -142,7 +124,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
           <div class="w-full xl:w-2/5 flex-shrink-0">
             <div class="rounded-xl overflow-hidden border-2 border-slateGold/40 gold-glow relative aspect-[4/5]">
               <img 
-                src="portrait.PNG" 
+                src="images/portrait.PNG" 
                 alt="David Aguiar Portrait" 
                 class="w-full h-full object-cover"
               />
@@ -155,7 +137,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
               Classic American Songbook Elegance with an Electric Contemporary Edge
             </h3>
             <p class="text-sm text-softMuted leading-relaxed pt-2">
-              David is a Munich-based jazz vocalist whose style blends the elegance of classic crooners with the energy and immediacy of contemporary live performance. As a vocalist with a Munich big band, he has developed his sound through regular work with full horn sections, rhythm section and ensemble arrangements, performing repertoire associated with Frank Sinatra, Nat King Cole, Michael Bublé and the modern swing tradition.
+              David is a Munich-based jazz vocalist whose style blends the elegance of classic crooners with the energy and immediacy of contemporary live performance. As a vocalist with a Munich big band, he has developed his sound through regular work with full horn sections, rhythm section and ensemble arrangements, performing repertoire associated with Frank Sinatra, Nat King Cole, Michael Bublé, Dean Martin, Andy Williams, Robbie Williams and the modern swing tradition.
             </p>
             <p class="text-sm text-softMuted leading-relaxed">
               His approach is centered on storytelling, rhythmic phrasing and a warm, resonant male vocal sound. Rather than treating the American Songbook as museum repertoire, David is interested in making standards feel direct, personal and alive for contemporary audiences.
@@ -168,8 +150,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
         <h2 class="text-2xl font-serif text-slateGold mb-6 uppercase tracking-widest">Repertoire</h2>
         <div class="flex flex-col sm:flex-row gap-4">
           
-          <!-- Track 1 Button -->
-          <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-track-url="https://api.soundcloud.com/tracks/YOUR_TRACK_ID_1">
+          <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-audio-src="audio/feeling-good.mp3">
             <div class="w-10 h-10 rounded-full bg-slateGold flex items-center justify-center text-midnight group-hover:scale-110 transition-transform">
               <span class="play-icon ml-1 font-bold">▶</span>
             </div>
@@ -179,8 +160,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
             </div>
           </div>
 
-          <!-- Track 2 Button -->
-          <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-track-url="https://api.soundcloud.com/tracks/YOUR_TRACK_ID_2">
+          <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-audio-src="audio/havent-met-you-yet.mp3">
             <div class="w-10 h-10 rounded-full bg-slateGold flex items-center justify-center text-midnight group-hover:scale-110 transition-transform">
               <span class="play-icon ml-1 font-bold">▶</span>
             </div>
@@ -194,7 +174,6 @@ I have updated the structure so the hero spans the entire width of the screen, u
       </div>
     </div>
 
-    <!-- Right Column -->
     <div class="w-full lg:w-1/2 px-6 lg:px-12 py-16 bg-midnight">
       
       <div id="media" class="flex flex-col sm:flex-row justify-between items-baseline mb-8 reveal">
@@ -207,16 +186,16 @@ I have updated the structure so the hero spans the entire width of the screen, u
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-24 reveal delay-100">
         <div class="aspect-[4/3] rounded-lg overflow-hidden border border-white/10 group cursor-pointer bg-navyCard/30">
-          <img src="IMG_1603.jpg" alt="Live Performance Close" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="images/BIGBAND.JPEG" alt="Live Performance Close" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="aspect-[4/3] rounded-lg overflow-hidden border border-white/10 group cursor-pointer bg-navyCard/30">
-          <img src="ESME Summer Concert 2026_07_05-446.jpg" alt="Big Band Stage Wide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="images/closeup.JPEG" alt="Big Band Stage Wide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="aspect-[4/3] rounded-lg overflow-hidden border border-white/10 group cursor-pointer bg-navyCard/30">
-          <img src="ESME Summer Concert 2026_07_05-373.jpg" alt="Vocal Performance Mid" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="images/summer.jpg" alt="Vocal Performance Mid" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
         <div class="aspect-[4/3] rounded-lg overflow-hidden border border-white/10 group cursor-pointer bg-navyCard/30">
-          <img src="ESME Summer Concert 2026_07_05-35.jpg" alt="Vocal and Saxophone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <img src="images/winter.jpg" alt="Vocal and Saxophone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
         </div>
       </div>
 
@@ -227,18 +206,18 @@ I have updated the structure so the hero spans the entire width of the screen, u
           
           <div class="space-y-6">
             <div class="border-b border-white/10 pb-4">
-              <h4 class="text-xl font-serif text-white">Munich, 25</h4>
-              <p class="text-xs text-softMuted mt-1">Monday, 11th - 10am - Munich</p>
+              <h4 class="text-xl font-serif text-white">Munich, Oct 9</h4>
+              <p class="text-xs text-softMuted mt-1">RABB Big Band Karaoke<br/>Neue Ziegelei, 19:30 - Munich</p>
             </div>
             
             <div class="border-b border-white/10 pb-4">
-              <h4 class="text-xl font-serif text-white">Vienna, Aug 27</h4>
-              <p class="text-xs text-softMuted mt-1">Monday 18th - Munich<br/>Thursday, 10am - Munich</p>
+              <h4 class="text-xl font-serif text-white">Munich, Jun 21</h4>
+              <p class="text-xs text-softMuted mt-1">ESME Summer Concert 2026<br/>Trudering KZ, 18:00 - Munich</p>
             </div>
             
             <div class="border-b border-white/10 pb-4">
-              <h4 class="text-xl font-serif text-white">Vienna, Aug 23</h4>
-              <p class="text-xs text-softMuted mt-1">Monday 18th - Vienna</p>
+              <h4 class="text-xl font-serif text-white">Munich, Jun 14</h4>
+              <p class="text-xs text-softMuted mt-1">München Stadtgeburtstag 2026<br/>Rindermarkt, 13:00 - Munich</p>
             </div>
           </div>
         </div>
@@ -265,10 +244,7 @@ I have updated the structure so the hero spans the entire width of the screen, u
     </div>
   </main>
 
-  <!-- Hidden SoundCloud Player -->
-  <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
-    <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&show_artwork=false" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"></iframe>
-  </div>
+  <audio id="native-audio-player" preload="none"></audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -285,32 +261,18 @@ I have updated the structure so the hero spans the entire width of the screen, u
 
       revealElements.forEach(el => revealObserver.observe(el));
 
-      // SoundCloud HMI Logic
-      const widgetIframe = document.getElementById('sc-widget');
-      const widget = SC.Widget(widgetIframe);
+      // Native Audio HMI Logic
+      const audioPlayer = document.getElementById('native-audio-player');
       const trackBtns = document.querySelectorAll('.track-btn');
       
-      let currentLoadedUrl = null;
-      let isCurrentlyPlaying = false;
-
-      widget.bind(SC.Widget.Events.PAUSE, () => {
-        isCurrentlyPlaying = false;
-        updateIcons();
-      });
-      widget.bind(SC.Widget.Events.PLAY, () => {
-        isCurrentlyPlaying = true;
-        updateIcons();
-      });
-      widget.bind(SC.Widget.Events.FINISH, () => {
-        isCurrentlyPlaying = false;
-        updateIcons();
-      });
+      let currentAudioSrc = null;
 
       function updateIcons() {
         trackBtns.forEach(btn => {
-          const url = btn.getAttribute('data-track-url');
+          const src = btn.getAttribute('data-audio-src');
           const icon = btn.querySelector('.play-icon');
-          if (url === currentLoadedUrl && isCurrentlyPlaying) {
+          
+          if (src === currentAudioSrc && !audioPlayer.paused) {
             icon.textContent = '⏸'; 
             icon.classList.remove('ml-1'); 
           } else {
@@ -320,21 +282,26 @@ I have updated the structure so the hero spans the entire width of the screen, u
         });
       }
 
+      audioPlayer.addEventListener('play', updateIcons);
+      audioPlayer.addEventListener('pause', updateIcons);
+      audioPlayer.addEventListener('ended', updateIcons);
+
       trackBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const trackUrl = btn.getAttribute('data-track-url');
+          const src = btn.getAttribute('data-audio-src');
           
-          if (trackUrl === currentLoadedUrl) {
-            widget.toggle();
+          if (src === currentAudioSrc) {
+            // Toggle play/pause
+            if (audioPlayer.paused) {
+              audioPlayer.play();
+            } else {
+              audioPlayer.pause();
+            }
           } else {
-            currentLoadedUrl = trackUrl;
-            isCurrentlyPlaying = true; 
-            updateIcons(); 
-            
-            widget.load(trackUrl, {
-              auto_play: true,
-              show_artwork: false
-            });
+            // Load and play new track
+            currentAudioSrc = src;
+            audioPlayer.src = src;
+            audioPlayer.play();
           }
         });
       });
@@ -343,5 +310,3 @@ I have updated the structure so the hero spans the entire width of the screen, u
 
 </body>
 </html>
-
-```
