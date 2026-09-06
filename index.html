@@ -1,13 +1,3 @@
-Here is the complete, updated code. I have integrated the **SoundCloud Widget API** to turn your repertoire cards into functional, playable HMI buttons.
-
-### What was added:
-
-1. **SoundCloud API Script**: Added to the `<head>`.
-2. **Hidden Player**: A hidden iframe at the very bottom of the `<body>` acts as the audio engine.
-3. **Button Attributes**: Added `class="track-btn"` and a `data-track-url` attribute to your Repertoire cards. You will need to replace the placeholder URLs with your actual SoundCloud track URLs.
-4. **JavaScript Logic**: Added a script at the bottom that handles loading the track, toggling play/pause, and updating the visual play/pause icon (▶ to ⏸) when clicked.
-
-```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -17,11 +7,12 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
   
   <script src="https://cdn.tailwindcss.com"></script>
   
+  <!-- SoundCloud Widget API -->
   <script src="https://w.soundcloud.com/player/api.js"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -77,7 +68,7 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
 </head>
 <body class="bg-midnight text-slate-100 font-sans antialiased selection:bg-slateGold selection:text-midnight">
 
-  <header class="fixed top-0 left-0 right-0 z-50 bg-midnight/90 backdrop-blur-md border-b border-white/5 transition-all duration-300">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-md border-b border-white/5 transition-all duration-300">
     <div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#home" class="text-2xl font-serif tracking-widest text-white group">
         DAVID Aguiar
@@ -93,29 +84,53 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
     </div>
   </header>
 
-  <main class="max-w-[1600px] mx-auto pt-20 flex flex-col lg:flex-row min-h-screen">
-    
-    <div class="w-full lg:w-1/2 lg:border-r border-slateGold/20 px-6 lg:px-12 py-16 relative">
-      <div class="absolute inset-0 star-bg opacity-70 pointer-events-none"></div>
+  <!-- Full Width Hero Section matching image_154da4.jpg -->
+  <section id="home" class="relative w-full h-[85vh] min-h-[600px] flex flex-col justify-end pb-16 pt-24 mt-0">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <!-- Using your wide band shot as the hero background -->
+      <img src="ESME Summer Concert 2026_07_05-446.jpg" alt="Live Performance" class="w-full h-full object-cover object-center" />
+      <!-- Dark gradients to ensure text readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-midnight/90 via-midnight/60 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-midnight/95 via-transparent to-transparent opacity-80"></div>
+    </div>
 
-      <div id="home" class="relative z-10 text-center mb-24 reveal">
-        <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slateGold font-semibold mb-4 block">
-          Munich-Based Vocalist :: Elegant Crooner :: Big Band Ensemble
-        </span>
-        <h1 class="text-5xl md:text-6xl font-serif text-white mb-8 leading-tight tracking-wide">
-          The Voice of the Modern <br /> American Songbook
+    <!-- Content Container -->
+    <div class="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-end gap-8 md:gap-0">
+      
+      <!-- Left Text -->
+      <div class="reveal w-full md:w-3/4">
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-sans font-bold text-white tracking-tight mb-4 md:mb-6">
+          David Aguiar
         </h1>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact" class="px-6 py-3 bg-slateGold text-midnight font-medium rounded hover:bg-warmGold transition-all text-sm">
-            Inquire for Private Events & Festivals
-          </a>
-          <a href="#repertoire" class="px-6 py-3 border border-white/20 text-white rounded hover:border-slateGold hover:text-slateGold transition-all text-sm">
-            Listen to Demos
-          </a>
+        <div class="flex items-center gap-4">
+          <!-- Small square icon replicating the one in the mockup -->
+          <div class="w-5 h-5 border border-white/40 flex items-center justify-center bg-white/10 flex-shrink-0">
+            <div class="w-2 h-2 bg-white/80"></div>
+          </div>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-sans text-white/95 font-medium tracking-wide">
+            Jazz vocalist for Munich's live music scene
+          </h2>
         </div>
       </div>
 
-      <div id="about" class="relative z-10 mb-24 reveal delay-100">
+      <!-- Right Button -->
+      <div class="reveal delay-100 flex-shrink-0">
+        <a href="#repertoire" class="inline-block px-8 py-3 bg-white text-midnight font-sans font-semibold rounded hover:bg-slate-200 transition-colors shadow-lg">
+          Explore the music
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two Column Content Area -->
+  <main class="max-w-[1600px] mx-auto flex flex-col lg:flex-row min-h-screen">
+    
+    <!-- Left Column -->
+    <div class="w-full lg:w-1/2 lg:border-r border-slateGold/20 px-6 lg:px-12 py-16 relative">
+      <div class="absolute inset-0 star-bg opacity-70 pointer-events-none"></div>
+
+      <div id="about" class="relative z-10 mb-24 reveal">
         <h2 class="text-2xl font-serif text-slateGold mb-8 uppercase tracking-widest">About</h2>
         
         <div class="flex flex-col xl:flex-row gap-8 items-start">
@@ -144,10 +159,11 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
         </div>
       </div>
 
-      <div id="repertoire" class="relative z-10 reveal delay-200">
+      <div id="repertoire" class="relative z-10 reveal delay-100">
         <h2 class="text-2xl font-serif text-slateGold mb-6 uppercase tracking-widest">Repertoire</h2>
         <div class="flex flex-col sm:flex-row gap-4">
           
+          <!-- Track 1 Button -->
           <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-track-url="https://api.soundcloud.com/tracks/YOUR_TRACK_ID_1">
             <div class="w-10 h-10 rounded-full bg-slateGold flex items-center justify-center text-midnight group-hover:scale-110 transition-transform">
               <span class="play-icon ml-1 font-bold">▶</span>
@@ -158,6 +174,7 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
             </div>
           </div>
 
+          <!-- Track 2 Button -->
           <div class="track-btn flex-1 bg-navyCard/60 border border-white/10 rounded-lg p-4 flex items-center gap-4 hover:border-slateGold/50 transition-colors cursor-pointer group" data-track-url="https://api.soundcloud.com/tracks/YOUR_TRACK_ID_2">
             <div class="w-10 h-10 rounded-full bg-slateGold flex items-center justify-center text-midnight group-hover:scale-110 transition-transform">
               <span class="play-icon ml-1 font-bold">▶</span>
@@ -172,6 +189,7 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
       </div>
     </div>
 
+    <!-- Right Column -->
     <div class="w-full lg:w-1/2 px-6 lg:px-12 py-16 bg-midnight">
       
       <div id="media" class="flex flex-col sm:flex-row justify-between items-baseline mb-8 reveal">
@@ -242,6 +260,7 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
     </div>
   </main>
 
+  <!-- Hidden SoundCloud Player -->
   <div style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
     <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&show_artwork=false" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"></iframe>
   </div>
@@ -269,7 +288,6 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
       let currentLoadedUrl = null;
       let isCurrentlyPlaying = false;
 
-      // Ensure widget tracks internal state (in case track ends naturally)
       widget.bind(SC.Widget.Events.PAUSE, () => {
         isCurrentlyPlaying = false;
         updateIcons();
@@ -288,10 +306,10 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
           const url = btn.getAttribute('data-track-url');
           const icon = btn.querySelector('.play-icon');
           if (url === currentLoadedUrl && isCurrentlyPlaying) {
-            icon.textContent = '⏸'; // Change to pause icon
-            icon.classList.remove('ml-1'); // Adjust alignment for pause icon
+            icon.textContent = '⏸'; 
+            icon.classList.remove('ml-1'); 
           } else {
-            icon.textContent = '▶'; // Revert to play icon
+            icon.textContent = '▶'; 
             icon.classList.add('ml-1');
           }
         });
@@ -302,21 +320,15 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
           const trackUrl = btn.getAttribute('data-track-url');
           
           if (trackUrl === currentLoadedUrl) {
-            // Toggle play/pause for the current track
             widget.toggle();
           } else {
-            // Load and play a new track
             currentLoadedUrl = trackUrl;
-            // Visual feedback before stream buffers
             isCurrentlyPlaying = true; 
             updateIcons(); 
             
             widget.load(trackUrl, {
               auto_play: true,
-              show_artwork: false,
-              callback: () => {
-                // Widget is ready and auto-playing
-              }
+              show_artwork: false
             });
           }
         });
@@ -326,5 +338,3 @@ Here is the complete, updated code. I have integrated the **SoundCloud Widget AP
 
 </body>
 </html>
-
-```
